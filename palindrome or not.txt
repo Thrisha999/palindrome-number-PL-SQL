@@ -1,0 +1,30 @@
+--Query:to check entered number is palindrome or not
+--PL/SQL Block:
+declare
+	n int;
+	m int;
+	k int;
+	rev int:=0;
+begin
+	n:=&n;
+	m:=n;
+	while(n>0)
+	loop
+	  k:=mod(n,10);
+	  rev:=rev*10+k;
+	  n:=trunc(n/10);
+	end loop;
+	if rev=m then
+		dbms_output.put_line(m||'is a palindrome');
+	else
+		dbms_output.put_line(m||'is not a palindrome');
+	end if;
+end;
+/
+--output:
+Enter value for n: 123
+old   7:        n:=&n;
+new   7:        n:=123;
+123is not a palindrome
+
+PL/SQL procedure successfully completed.
